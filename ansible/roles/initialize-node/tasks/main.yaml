@@ -1,0 +1,52 @@
+---
+- name: '必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ base_packages }}'
+
+- name: 'sudoグループを作成する'
+  become: true
+  ansible.builtin.group:
+    name: sudo
+    state: present
+
+- name: 'sudoグループに所属しているユーザがパスワードなしでsudoできるようにする'
+  become: true
+  community.general.sudoers:
+    name: sudo-maintainer
+    group: sudo
+    nopassword: true
+    commands: ALL
+
+- name: 'メンテナンス用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: maintainer
+    shell: /usr/bin/zsh
+    groups: sudo, wheel
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+
+- name: 'メンテナンス用のユーザのauthorized_keysを設定する'
+  become: true
+  ansible.posix.authorized_key:
+    user: maintainer
+    state: present
+    key: '{{ item.key }}'
+  with_items: '{{ authorized_keys }}'
+
+- name: 'rootのパスワードを変更する'
+  become: true
+  ansible.builtin.user:
+    name: root
+    password: "{{ vault_root_password | password_hash('sha512') }}"
+
+# - name: 'デフォルトユーザを削除する'
+#   become: true
+#   ansible.builtin.user:
+#     name: kei
+#     remove: true
+#     state: absent
+

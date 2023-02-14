@@ -1,0 +1,14 @@
+---
+- name: "archlinux-keyringを先に更新かける"
+  become: true
+  community.general.pacman:
+    name: archlinux-keyring
+    state: latest
+    update_cache: yes
+
+- name: "pacman -Syyuする"
+  become: true
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+  register: result

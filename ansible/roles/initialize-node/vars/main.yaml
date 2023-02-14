@@ -1,0 +1,14 @@
+---
+base_packages:
+  - name: sudo
+  - name: zsh
+  - name: zsh-completions
+  - name: git
+  - name: base-devel
+  - name: rustup
+
+authorized_keys:
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMz2Z8uOw2WCkEQgaQtpDxCNqAPsRFiVCiXQrSzzo+vb
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKZJc89W8z5FzkZpbA4Hl6RXyX5t8nlWingBKMlFPAaw JuiceSSH
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIICi+GHWOlmZPHM6a6dBuQLbHrodCIh2FRvwhaQEUT4V arch-on-gpd
