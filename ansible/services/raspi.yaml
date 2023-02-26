@@ -1,0 +1,5 @@
+---
+- hosts: archlinuxarm
+  roles:
+    - upgrade-packages
+    - initialize-node
