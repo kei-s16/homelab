@@ -4,6 +4,9 @@ ansible_port=22
 [dns]
 192.168.30.3
 
+[bastion:vars]
+ansible_user=maintainer
+
 [bastion]
 192.168.30.30
 192.168.30.32
