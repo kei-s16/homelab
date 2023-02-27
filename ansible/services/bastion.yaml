@@ -3,3 +3,4 @@
   roles:
     - tailscale
     - deployer
+    - ssh
