@@ -1,3 +1,10 @@
+---
+- name: "kei-s16/homelab をクローンする"
+  ansible.builtin.git:
+    repo: git@github.com:kei-s16/homelab.git
+    dest: "/home/{{ ansible_user }}/repo/github/kei-s16/homelab"
+    accept_hostkey: true
+
 - name: 'ansibleをインストール'
   become: true
   community.general.pacman:
