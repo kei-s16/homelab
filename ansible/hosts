@@ -4,6 +4,10 @@ ansible_port=22
 [dns]
 192.168.30.3
 
+[bastion]
+192.168.30.30
+192.168.30.32
+
 [kubernetes-proxy]
 192.168.30.50
 
@@ -17,6 +21,7 @@ ansible_user=kei
 
 [x86:children]
 dns
+bastion
 
 [arm:vars]
 ansible_user=maintainer
