@@ -1,5 +1,5 @@
-dns:
-	ansible-playbook -i hosts-dns ./services/dns.yaml --vault-password-file ./vault_pass
+archlinux:
+	ansible-playbook -i hosts ./services/archlinux.yaml --vault-password-file ./vault_pass
 
-raspi:
-	ansible-playbook -i hosts-raspi ./services/raspi.yaml --vault-password-file ./vault_pass
+dns:
+	ansible-playbook -i hosts ./services/dns.yaml --vault-password-file ./vault_pass
