@@ -4,7 +4,12 @@
   ansible.builtin.pip:
     name: stormssh
 
-- name: 'ssh/configを作成する'
+- name: '~/.ssh/configを削除する'
+  ansible.builtin.file:
+    path: '/home/{{ ansible_user }}/.ssh/config'
+    state: absent
+
+- name: '~/.ssh/configを作成する'
   community.general.ssh_config:
     user: 'maintainer'
     host: '{{ item.name }}'
@@ -14,7 +19,7 @@
     state: present
   with_items: '{{ servers }}'
 
-- name: 'ssh/configにgithub用の情報を追加'
+- name: '~/.ssh/configにgithub用の情報を追加'
   community.general.ssh_config:
     user: 'maintainer'
     remote_user: 'git'
