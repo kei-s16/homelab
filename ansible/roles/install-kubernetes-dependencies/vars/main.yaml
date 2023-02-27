@@ -1,0 +1,4 @@
+---
+kubernetes_packages:
+  - name: containerd
+  - name: crictl

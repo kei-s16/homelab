@@ -1,0 +1,9 @@
+---
+- name: 'kubernetesに必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ kubernetes_packages  }}'
+
+# TODO: AURのやつも入れる
