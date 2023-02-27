@@ -1,5 +1,0 @@
----
-- hosts: arm
-  roles:
-    - upgrade-packages
-    - initialize-node
