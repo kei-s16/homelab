@@ -1,0 +1,15 @@
+---
+# community.general.ssh_config の依存関係
+- name: 'stormsshを追加する'
+  ansible.builtin.pip:
+    name: stormssh
+
+- name: 'ssh/configを作成する'
+  community.general.ssh_config:
+    user: 'maintainer'
+    host: '{{ item.name }}'
+    hostname: '{{ item.address }}'
+    forward_agent: true
+    strict_host_key_checking: 'yes'
+    state: present
+  with_items: '{{ servers }}'
