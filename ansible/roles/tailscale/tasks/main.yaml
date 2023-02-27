@@ -1,0 +1,16 @@
+- name: 'tailscaleをインストール'
+  become: true
+  community.general.pacman:
+    name: tailscale
+    state: latest
+
+# 本当はここにtailscale upが必要
+# でもぶっちゃけこれtailscaleが最新であることとtailscaledが動いてることを担保できればいいから
+# ~~めんどくさそうだし~~やらない
+
+- name: 'tailscaled.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: tailscaled
