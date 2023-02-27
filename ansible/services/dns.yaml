@@ -1,6 +1,4 @@
 ---
 - hosts: dns
   roles:
-    - upgrade-packages
-    - initialize-node
     - dnsmasq
