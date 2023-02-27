@@ -1,5 +1,6 @@
 ---
 - hosts: bastion
   roles:
+    - ssh
     - tailscale
     - deployer
