@@ -17,6 +17,9 @@ deployer
 [kubernetes-proxy]
 192.168.30.50
 
+[kubernetes:children]
+kubernetes-master
+
 [kubernetes-master]
 192.168.30.51
 192.168.30.52
