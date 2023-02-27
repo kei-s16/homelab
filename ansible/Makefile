@@ -6,3 +6,6 @@ dns:
 
 bastion:
 	ansible-playbook -i hosts ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
+
+kubernetes:
+	ansible-playbook -i hosts ./services/kubernetes.yaml --vault-password-file ~/ansible/.vault_pass
