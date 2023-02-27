@@ -6,6 +6,8 @@ base_packages:
   - name: git
   - name: base-devel
   - name: rustup
+  - name: python-pip
+  - name: python-setuptools
 
 authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
