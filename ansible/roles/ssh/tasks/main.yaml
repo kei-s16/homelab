@@ -13,3 +13,11 @@
     strict_host_key_checking: 'yes'
     state: present
   with_items: '{{ servers }}'
+
+- name: 'ssh/configにgithub用の情報を追加'
+  community.general.ssh_config:
+    user: 'maintainer'
+    remote_user: 'git'
+    host: 'github.com'
+    hostname: 'github.com'
+    state: present
