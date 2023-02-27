@@ -7,9 +7,8 @@ ansible_port=22
 [bastion:vars]
 ansible_user=maintainer
 
-[bastion]
-192.168.30.30
-192.168.30.32
+[bastion:children]
+deployer
 
 [deployer]
 192.168.30.30
