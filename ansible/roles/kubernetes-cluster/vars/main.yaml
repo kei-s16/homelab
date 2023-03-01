@@ -40,3 +40,11 @@ servers:
     address: "192.168.30.61"
   - name: worker03
     address: "192.168.30.62"
+
+master_servers:
+  - name: master01
+    address: "192.168.30.51"
+  - name: master02
+    address: "192.168.30.52"
+  - name: master03
+    address: "192.168.30.53"

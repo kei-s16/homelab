@@ -38,6 +38,15 @@
   vars:
     item: '{{ servers }}'
 
+- name: 'nginx.confを置く'
+  become: true
+  ansible.builtin.template:
+    src: nginx-conf.j2
+    dest: /etc/nginx/nginx.conf
+  vars:
+    item: '{{ master_servers }}'
+  when: "'kubernetes-proxy' in group_names"
+
 - name: 'kubelet.serviceを有効化'
   become: true
   ansible.builtin.systemd:
