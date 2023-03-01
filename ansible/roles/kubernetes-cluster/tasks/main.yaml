@@ -47,6 +47,14 @@
     item: '{{ master_servers }}'
   when: "'kubernetes-proxy' in group_names"
 
+- name: 'containerd.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: containerd
+  when: "not 'kubernetes-proxy' in group_names"
+
 - name: 'kubelet.serviceを有効化'
   become: true
   ansible.builtin.systemd:
