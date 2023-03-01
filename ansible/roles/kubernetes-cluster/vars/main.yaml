@@ -26,19 +26,19 @@ kubernetes_aur_packages:
   - name: kubectl-bin
 
 servers:
-  - name: proxy01
+  - name: k8s-proxy01
     address: "192.168.30.50"
-  - name: master01
+  - name: k8s-master01
     address: "192.168.30.51"
-  - name: master02
+  - name: k8s-master02
     address: "192.168.30.52"
-  - name: master03
+  - name: k8s-master03
     address: "192.168.30.53"
-  - name: worker01
+  - name: k8s-worker01
     address: "192.168.30.60"
-  - name: worker02
+  - name: k8s-worker02
     address: "192.168.30.61"
-  - name: worker03
+  - name: k8s-worker03
     address: "192.168.30.62"
 
 master_servers:
