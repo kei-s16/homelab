@@ -30,6 +30,14 @@
     state: installed
   when: "'kubernetes-proxy' in group_names"
 
+- name: '/etc/hostsを置く'
+  become: true
+  ansible.builtin.template:
+    src: etc-hosts.j2
+    dest: /etc/hosts
+  vars:
+    item: '{{ servers }}'
+
 - name: 'kubelet.serviceを有効化'
   become: true
   ansible.builtin.systemd:

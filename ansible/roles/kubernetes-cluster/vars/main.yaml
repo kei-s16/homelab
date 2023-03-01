@@ -24,3 +24,19 @@ kubernetes_aur_packages:
   - name: kubeadm-bin
   - name: kubelet-bin
   - name: kubectl-bin
+
+servers:
+  - name: proxy01
+    address: "192.168.30.50"
+  - name: master01
+    address: "192.168.30.51"
+  - name: master02
+    address: "192.168.30.52"
+  - name: master03
+    address: "192.168.30.53"
+  - name: worker01
+    address: "192.168.30.60"
+  - name: worker02
+    address: "192.168.30.61"
+  - name: worker03
+    address: "192.168.30.62"
