@@ -47,6 +47,14 @@
     item: '{{ master_servers }}'
   when: "'kubernetes-proxy' in group_names"
 
+- name: 'nginx.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: nginx
+  when: "'kubernetes-proxy' in group_names"
+
 - name: 'br_netfilterを有効化'
   become: true
   community.general.modprobe:
