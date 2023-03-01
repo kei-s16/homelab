@@ -1,3 +1,6 @@
+setup:
+	ansible-galaxy collection install kewlfft.aur
+
 archlinux:
 	ansible-playbook -i hosts ./services/archlinux.yaml --vault-password-file ~/ansible/.vault_pass
 
