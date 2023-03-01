@@ -1,4 +1,21 @@
 ---
-kubernetes_packages:
+kubernetes_master_packages:
   - name: containerd
   - name: crictl
+  - name: cni-plugins
+  - name: socat
+  - name: ethtool
+  - name: iptables-nft
+  - name: conntrack-tools
+
+kubernetes_worker_packages:
+  - name: containerd
+  - name: crictl
+  - name: kubeadm
+  - name: kubelet
+  - name: kubectl
+  - name: cni-plugins
+  - name: socat
+  - name: ethtool
+  - name: iptables-nft
+  - name: conntrack-tools

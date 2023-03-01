@@ -1,9 +1,23 @@
 ---
-- name: 'kubernetesに必要なパッケージを追加する'
+- name: 'masterに必要なパッケージを追加する'
   become: true
   community.general.pacman:
     name: '{{ item.name }}'
     state: installed
-  with_items: '{{ kubernetes_packages  }}'
+  with_items: '{{ kubernetes_master_packages  }}'
+  when: "'kubernetes-master' in group_names"
 
-# TODO: AURのやつも入れる
+- name: 'workerに必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ kubernetes_worker_packages  }}'
+  when: "'kubernetes-worker' in group_names"
+
+- name: 'kubelet.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: kubelet
