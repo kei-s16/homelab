@@ -20,6 +20,7 @@ deployer
 [kubernetes:children]
 kubernetes-master
 kubernetes-worker
+kubernetes-proxy
 
 [kubernetes-master]
 192.168.30.51
