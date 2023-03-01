@@ -3,6 +3,7 @@ kubernetes_master_packages:
   - name: containerd
   - name: crictl
   - name: cni-plugins
+  - name: helm
   - name: socat
   - name: ethtool
   - name: iptables-nft
