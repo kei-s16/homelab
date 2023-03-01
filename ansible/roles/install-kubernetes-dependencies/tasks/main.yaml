@@ -7,6 +7,14 @@
   with_items: '{{ kubernetes_master_packages  }}'
   when: "'kubernetes-master' in group_names"
 
+- name: 'masterに必要なaurパッケージを追加する'
+  become: true
+  kewlfft.aur.aur:
+    name: '{{ item.name }}'
+    state: present
+  with_items: '{{ kubernetes_aur_packages }}'
+  when: "'kubernetes-master' in group_names"
+
 - name: 'workerに必要なパッケージを追加する'
   become: true
   community.general.pacman:

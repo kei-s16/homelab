@@ -19,3 +19,8 @@ kubernetes_worker_packages:
   - name: ethtool
   - name: iptables-nft
   - name: conntrack-tools
+
+kubernetes_aur_packages:
+  - name: kubeadm-bin
+  - name: kubelet-bin
+  - name: kubectl-bin
