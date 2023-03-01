@@ -47,6 +47,18 @@
     item: '{{ master_servers }}'
   when: "'kubernetes-proxy' in group_names"
 
+- name: 'br_netfilterを有効化'
+  become: true
+  community.general.modprobe:
+    name: br_netfilter
+    state: present
+
+- name: 'sysctlの設定を置く'
+  become: true
+  ansible.builtin.copy:
+    src: 99-sysctl.conf
+    dest: /etc/sysctl.d/99-sysctl.conf
+
 - name: 'containerd.serviceを有効化'
   become: true
   ansible.builtin.systemd:
