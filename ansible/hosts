@@ -19,11 +19,17 @@ deployer
 
 [kubernetes:children]
 kubernetes-master
+kubernetes-worker
 
 [kubernetes-master]
 192.168.30.51
 192.168.30.52
 192.168.30.53
+
+[kubernetes-worker]
+192.168.30.60
+192.168.30.61
+192.168.30.62
 
 [x86:vars]
 ansible_user=kei
@@ -32,6 +38,7 @@ ansible_user=kei
 dns
 bastion
 deployer
+kubernetes-worker
 
 [arm:vars]
 ansible_user=maintainer
