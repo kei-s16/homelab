@@ -1,4 +1,4 @@
 ---
 - hosts: kubernetes
   roles:
-    - install-kubernetes-dependencies
+    - kubernetes-cluster
