@@ -8,6 +8,7 @@ kubernetes_master_packages:
   - name: ethtool
   - name: iptables-nft
   - name: conntrack-tools
+  - name: argocd
 
 kubernetes_worker_packages:
   - name: containerd
@@ -20,6 +21,7 @@ kubernetes_worker_packages:
   - name: ethtool
   - name: iptables-nft
   - name: conntrack-tools
+  - name: argocd
 
 kubernetes_aur_packages:
   - name: kubeadm-bin
