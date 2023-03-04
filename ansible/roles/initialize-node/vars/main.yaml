@@ -3,6 +3,7 @@ base_packages:
   - name: sudo
   - name: zsh
   - name: zsh-completions
+  - name: mosh
   - name: git
   - name: base-devel
   - name: rustup
