@@ -4,5 +4,7 @@ records:
     address: "192.168.30.20"
   - name: proxmox
     address: "192.168.30.5"
+  - name: argocd
+    address: "192.168.30.181"
   - name: nas
     address: "192.168.11.5"
