@@ -1,4 +1,25 @@
 ---
+- name: '監視に必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ monitoring_packages  }}'
+
+- name: 'prometheus.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: prometheus
+
+- name: 'prometheus-node-exporter.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: prometheus-node-exporter
+
 - name: 'masterに必要なパッケージを追加する'
   become: true
   community.general.pacman:

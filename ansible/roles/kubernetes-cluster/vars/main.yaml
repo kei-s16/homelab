@@ -1,4 +1,8 @@
 ---
+monitoring_packages:
+  - name: prometheus
+  - name: prometheus-node-exporter
+
 kubernetes_master_packages:
   - name: containerd
   - name: crictl

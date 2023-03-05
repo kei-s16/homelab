@@ -7,6 +7,9 @@ archlinux:
 dns:
 	ansible-playbook -i hosts ./services/dns.yaml --vault-password-file ~/ansible/.vault_pass
 
+grafana:
+	ansible-playbook -i hosts ./services/grafana.yaml --vault-password-file ~/ansible/.vault_pass
+
 bastion:
 	ansible-playbook -i hosts ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
 

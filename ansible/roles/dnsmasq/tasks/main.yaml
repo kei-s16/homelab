@@ -25,3 +25,10 @@
     state: started
     enabled: true
     name: dnsmasq
+
+- name: 'dnsmasq.serviceを再読み込み'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: dnsmasq
