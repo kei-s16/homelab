@@ -6,6 +6,12 @@
     state: installed
   with_items: '{{ monitoring_packages  }}'
 
+- name: 'prometheusの設定を置く'
+  become: true
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+
 - name: 'prometheus.serviceを有効化'
   become: true
   ansible.builtin.systemd:
@@ -18,6 +24,20 @@
   ansible.builtin.systemd:
     state: started
     enabled: true
+    name: prometheus-node-exporter
+
+- name: 'prometheus.serviceのリロード'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: prometheus
+
+- name: 'prometheus-node-exporter.serviceのリロード'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
     name: prometheus-node-exporter
 
 - name: 'masterに必要なパッケージを追加する'
