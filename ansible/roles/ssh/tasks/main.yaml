@@ -1,8 +1,17 @@
 ---
+# stormsshの依存関係
+- name: 'paramikoをインストール'
+  become: true
+  community.general.pacman:
+    name: python-paramiko
+    state: latest
+
 # community.general.ssh_config の依存関係
 - name: 'stormsshを追加する'
   ansible.builtin.pip:
     name: stormssh
+    virtualenv: "~/.bastion/ansible/venv"
+    virtualenv_command: "/usr/bin/python -m venv"
 
 - name: '~/.ssh/configを削除する'
   ansible.builtin.file:
