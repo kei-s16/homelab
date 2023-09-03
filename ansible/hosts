@@ -9,12 +9,15 @@ ansible_port=22
 192.168.30.32
 192.168.30.53
 
+[arch:vars]
+ansible_user=maintainer
+
 [arch]
 192.168.30.3
 192.168.30.30
 192.168.30.32
 
-[arm:vars]
+[archarm:vars]
 ansible_user=maintainer
 
 [archarm]
