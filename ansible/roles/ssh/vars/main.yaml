@@ -6,5 +6,5 @@ servers:
     address: 192.168.30.30
   - name: bastion02
     address: 192.168.30.32
-  - name: bastionarch
+  - name: bastion03
     address: 192.168.30.53
