@@ -15,7 +15,6 @@ deployer
 192.168.30.32
 
 [grafana]
-192.168.30.10
 
 [kubernetes-proxy]
 
