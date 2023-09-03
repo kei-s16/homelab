@@ -4,54 +4,25 @@ ansible_port=22
 [dns]
 192.168.30.3
 
-[bastion:vars]
+[bastion]
+192.168.30.30
+192.168.30.32
+192.168.30.53
+
+[arch:vars]
 ansible_user=maintainer
 
-[bastion:children]
-deployer
-
-[deployer]
+[arch]
+192.168.30.3
 192.168.30.30
 192.168.30.32
 
-[grafana]
-192.168.30.10
-
-[kubernetes-proxy]
-192.168.30.50
-
-[kubernetes:children]
-kubernetes-master
-kubernetes-worker
-kubernetes-proxy
-
-[kubernetes-master]
-192.168.30.51
-192.168.30.52
-192.168.30.53
-
-[kubernetes-worker]
-192.168.30.60
-192.168.30.61
-192.168.30.62
-
-[x86:vars]
-ansible_user=kei
-
-[x86:children]
-dns
-grafana
-bastion
-deployer
-kubernetes-worker
-
-[arm:vars]
+[archarm:vars]
 ansible_user=maintainer
 
-[arm:children]
-kubernetes-proxy
-kubernetes-master
+[archarm]
+192.168.30.53
 
 [archlinux:children]
-x86
-arm
+arch
+archarm

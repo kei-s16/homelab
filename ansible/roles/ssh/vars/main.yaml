@@ -6,11 +6,5 @@ servers:
     address: 192.168.30.30
   - name: bastion02
     address: 192.168.30.32
-  - name: kube-proxy01
-    address: 192.168.30.50
-  - name: kube-master01
-    address: 192.168.30.51
-  - name: kube-master02
-    address: 192.168.30.52
-  - name: kube-master03
+  - name: bastionarch
     address: 192.168.30.53
