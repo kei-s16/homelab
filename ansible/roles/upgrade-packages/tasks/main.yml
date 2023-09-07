@@ -14,6 +14,7 @@
   register: result
 
 - name: "更新されたパッケージがあるなら、再起動"
+  become: true
   ansible.builtin.reboot:
     msg: "Ansibleでパッケージ更新があったので、再起動します"
   when: result.changed == true
