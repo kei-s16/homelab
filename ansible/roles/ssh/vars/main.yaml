@@ -8,3 +8,7 @@ servers:
     address: 192.168.30.11
   - name: lxc-bastion03
     address: 192.168.30.12
+  - name: pi-bastion01
+    address: 192.168.30.53
+  - name: pi-bastion02
+    address: 192.168.30.54
