@@ -2,12 +2,6 @@
 servers:
   - name: dns01
     address: 192.168.30.3
-  - name: bastion01
-    address: 192.168.30.30
-  - name: bastion02
-    address: 192.168.30.32
-  - name: bastion03
-    address: 192.168.30.53
   - name: lxc-bastion01
     address: 192.168.30.10
   - name: lxc-bastion02
