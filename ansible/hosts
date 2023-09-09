@@ -16,6 +16,7 @@ ansible_port=22
 192.168.30.30
 192.168.30.32
 192.168.30.53
+192.168.30.54
 
 [arch:vars]
 ansible_user=maintainer
