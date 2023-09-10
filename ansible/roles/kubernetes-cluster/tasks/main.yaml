@@ -1,4 +1,19 @@
 ---
+- name: 'kubernetesグループを作成する'
+  become: true
+  ansible.builtin.group:
+    name: kubernetes
+    state: present
+
+- name: 'kubernetes用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: kube
+    shell: /usr/bin/zsh
+    groups: kubernetes, sudo
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+
 - name: '監視に必要なパッケージを追加する'
   become: true
   community.general.pacman:
