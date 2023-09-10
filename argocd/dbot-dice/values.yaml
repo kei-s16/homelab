@@ -22,17 +22,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-serviceAccount:
-  create: false
-
 podAnnotations: {}
 
 podSecurityContext: {}
 
 securityContext: {}
-
-service:
-  type: ClusterIP
 
 ingress:
   enabled: false
