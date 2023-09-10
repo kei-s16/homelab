@@ -1,0 +1,4 @@
+---
+mariadb_packages:
+  - name: mariadb
+  - name: mariadb-clients

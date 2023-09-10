@@ -1,0 +1,38 @@
+---
+- name: 'mariadb実行に必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ mariadb_packages  }}'
+  when: "'mariadb' in group_names"
+
+- name: 'mariadbの文字エンコード設定を置く'
+  become: true
+  ansible.builtin.copy:
+    src: encoding.cnf
+    dest: /etc/my.cnf.d/encoding.cnf
+  when: "'mariadb' in group_names"
+
+- name: 'mariadbのログ設定を置く'
+  become: true
+  ansible.builtin.copy:
+    src: logging.cnf
+    dest: /etc/my.cnf.d/logging.cnf
+  when: "'mariadb' in group_names"
+
+#- name: 'mariadb.serviceを有効化'
+#  become: true
+#  ansible.builtin.systemd:
+#    state: started
+#    enabled: true
+#    name: mariadb
+#  when: "'mariadb' in group_names"
+#
+#- name: 'mariadb.serviceを再読み込み'
+#  become: true
+#  ansible.builtin.systemd:
+#    state: restarted
+#    daemon_reload: true
+#    name: mariadb
+#  when: "'mariadb' in group_names"

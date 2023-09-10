@@ -15,3 +15,6 @@ bastion:
 
 kubernetes:
 	ansible-playbook -i hosts ./services/kubernetes.yaml --vault-password-file ~/ansible/.vault_pass
+
+redmine:
+	ansible-playbook -i hosts ./services/redmine.yaml --vault-password-file ~/ansible/.vault_pass
