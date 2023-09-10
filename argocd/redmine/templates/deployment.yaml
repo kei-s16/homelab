@@ -39,8 +39,7 @@ spec:
               value: {{ .value }}
           {{- end }}
           ports:
-            - containerPort: {{ .Values.service.TargetPort }}
-              port: {{ .Values.service.port }}
+            - port: {{ .Values.service.port }}
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
