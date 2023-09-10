@@ -19,9 +19,9 @@ ansible_port=22
 192.168.30.54
 
 [redmine:children]
-mysql
+mariadb
 
-[mysql]
+[mariadb]
 192.168.30.20
 
 [kubernetes-master]
