@@ -40,6 +40,13 @@
     daemon_reload: true
     name: prometheus-node-exporter
 
+- name: 'kubernetesに必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ kubernetes_packages  }}'
+
 - name: 'masterに必要なパッケージを追加する'
   become: true
   community.general.pacman:
@@ -48,27 +55,12 @@
   with_items: '{{ kubernetes_master_packages  }}'
   when: "'kubernetes-master' in group_names"
 
-- name: 'masterに必要なaurパッケージを追加する'
-  become: true
-  kewlfft.aur.aur:
-    name: '{{ item.name }}'
-    state: present
-  with_items: '{{ kubernetes_aur_packages }}'
-  when: "'kubernetes-master' in group_names"
-
-- name: 'workerに必要なパッケージを追加する'
-  become: true
-  community.general.pacman:
-    name: '{{ item.name }}'
-    state: installed
-  with_items: '{{ kubernetes_worker_packages  }}'
-  when: "'kubernetes-worker' in group_names"
-
 - name: 'proxyに必要なパッケージを追加する'
   become: true
   community.general.pacman:
-    name: nginx
+    name: '{{ item.name }}'
     state: installed
+  with_items: '{{ kubernetes_proxy_packages  }}'
   when: "'kubernetes-proxy' in group_names"
 
 - name: '/etc/hostsを置く'
