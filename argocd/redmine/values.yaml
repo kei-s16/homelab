@@ -80,3 +80,13 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+environments:
+  - name: "REDMINE_DB_MYSQL"
+    value: ""
+  - name: "REDMINE_DB_USERNAME"
+    value: "redmine"
+  - name: "REDMINE_DB_PASSWORD"
+    value: ""
+  - name: "REDMINE_SECRET_KEY_BASE"
+    value: ""
