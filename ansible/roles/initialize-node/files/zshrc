@@ -1,0 +1,55 @@
+# based on kei-s16/dotfiles
+export KCODE=u
+export EDITOR=vim
+
+export CLICOLOR=true
+autoload -Uz colors
+colors
+
+autoload -Uz compinit
+compinit
+
+setopt auto_list
+setopt auto_menu
+setopt auto_cd
+setopt list_packed
+setopt list_types
+
+setopt print_eight_bit
+setopt no_flow_control
+setopt ignore_eof
+setopt correct
+
+HISTFILE=~/.zhist
+HISTSIZE=10000
+SAVEHIST=10000
+setopt bang_hist
+setopt extended_history
+setopt share_history
+setopt hist_reduce_blanks
+setopt histignorealldups
+
+autoload -Uz add-zsh-hook
+autoload -Uz terminfo
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' formats '%F{green}[%b]%f'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd(){vcs_info}
+setopt prompt_subst
+
+PROMPT='%(?.%{${fg[green]}%}.%{${fg[red]}%})%n%{${reset_color}%}@${fg[blue]}%m${reset_color}(%*%) %# '
+RPROMPT='%~${vcs_info_msg_0_}'
+
+zle -N edit-command-line
+
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "\C-e" edit-command-line
+
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh

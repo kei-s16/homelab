@@ -6,6 +6,12 @@
     state: installed
   with_items: '{{ base_packages }}'
 
+- name: 'グローバルなzshrcを置く'
+  become: true
+  ansible.builtin.copy:
+    src: zshrc
+    dest: /etc/zsh/zshrc
+
 - name: 'sudoグループを作成する'
   become: true
   ansible.builtin.group:
