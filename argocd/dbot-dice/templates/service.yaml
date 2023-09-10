@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dbot-dice.fullname" . }}
+  labels:
+    {{- include "dbot-dice.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    {{- include "dbot-dice.selectorLabels" . | nindent 4 }}
