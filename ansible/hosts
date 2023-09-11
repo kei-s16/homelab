@@ -16,7 +16,6 @@ ansible_port=22
 192.168.30.11
 192.168.30.12
 192.168.30.53
-192.168.30.54
 
 [redmine:children]
 mariadb
