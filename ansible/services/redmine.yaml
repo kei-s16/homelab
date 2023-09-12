@@ -1,4 +1,6 @@
 ---
 - hosts: redmine
   roles:
+    - upgrade-packages
+    - initialize-node
     - mariadb

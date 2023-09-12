@@ -1,0 +1,59 @@
+---
+- name: 'pi-holeの稼動に必要なパッケージをインストール'
+  become: true
+  community.general.pacman:
+    name: 
+    - lighttpd
+    - php-cgi
+    - openssl
+    - openssl-1.1
+    - patch
+    state: latest
+
+- name: 'pi-holeをインストール'
+  kewlfft.aur.aur:
+    name:
+      - pi-hole-ftl
+      - pi-hole-server
+    state: present
+
+- name: 'pihole-FTL.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: pihole-FTL
+
+- name: 'lighttpd.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: lighttpd
+
+- name: 'resolvdの追加設定用ディレクトリを掘る'
+  become: true
+  ansible.builtin.file:
+    path: /etc/systemd/resolved.conf.d
+    state: "directory"
+    recurse: true
+
+- name: 'resolvedの設定を置く'
+  become: true
+  ansible.builtin.copy:
+    src: pi-hole.conf
+    dest: /etc/systemd/resolved.conf.d/pi-hole.conf
+
+- name: 'resolvedを再読み込み'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: systemd-resolved
+
+- name: 'pihole-FTLを再読み込み'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: pihole-FTL
