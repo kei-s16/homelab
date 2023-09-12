@@ -52,7 +52,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls: 
-   - secretName: cert-secrets
+   - secretName: cert-secret
      hosts:
        - chart-example.local
 
