@@ -1,4 +1,6 @@
 ---
 - hosts: dns
   roles:
+    - upgrade-packages
+    - initialize-node
     - pi-hole
