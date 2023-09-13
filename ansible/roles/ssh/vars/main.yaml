@@ -2,6 +2,8 @@
 servers:
   - name: dns01
     address: 192.168.30.3
+  - name: deployer01
+    address: 192.168.30.7
   - name: lxc-bastion01
     address: 192.168.30.10
   - name: lxc-bastion02
