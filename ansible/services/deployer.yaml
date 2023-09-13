@@ -1,7 +1,6 @@
 ---
-- hosts: bastion
+- hosts: deployer
   roles:
     - upgrade-packages
     - initialize-node
-    - ssh
-    - tailscale
+    - deployer
