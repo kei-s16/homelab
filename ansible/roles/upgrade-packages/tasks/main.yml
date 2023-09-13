@@ -17,4 +17,4 @@
   become: true
   ansible.builtin.reboot:
     msg: "Ansibleでパッケージ更新があったので、再起動します"
-  when: result.changed == true && "not 'deployer' in group_names"
+  when: result.changed == true and "not 'deployer' in group_names"
