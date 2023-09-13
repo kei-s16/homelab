@@ -18,6 +18,7 @@ kubernetes_packages:
 
 kubernetes_master_packages:
   - name: helm
+  - name: kustomize
 
 kubernetes_proxy_packages:
   - name: nginx
