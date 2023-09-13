@@ -1,6 +1,9 @@
 setup:
 	ansible-galaxy collection install kewlfft.aur
 
+all:
+	ansible-playbook -i hosts ./services/all.yaml --vault-password-file ~/ansible/.vault_pass
+
 dns:
 	ansible-playbook -i hosts ./services/dns.yaml --vault-password-file ~/ansible/.vault_pass
 
@@ -9,6 +12,9 @@ grafana:
 
 bastion:
 	ansible-playbook -i hosts ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
+
+deployer:
+	ansible-playbook -i hosts ./services/deployer.yaml --vault-password-file ~/ansible/.vault_pass
 
 kubernetes:
 	ansible-playbook -i hosts ./services/kubernetes.yaml --vault-password-file ~/ansible/.vault_pass
