@@ -36,10 +36,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
-  type: LoadBalancer
-  port: 3000
-
 secretsName: "redmine-secrets"
 
 ingress:
