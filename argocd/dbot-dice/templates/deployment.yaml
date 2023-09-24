@@ -29,11 +29,9 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          {{- range .Values.environments }}
-            - name: {{ .name }}
-              value: {{ .value }}
-          {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.secretsName }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
