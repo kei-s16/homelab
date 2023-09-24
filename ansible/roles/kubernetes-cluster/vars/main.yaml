@@ -20,12 +20,7 @@ kubernetes_master_packages:
   - name: helm
   - name: kustomize
 
-kubernetes_proxy_packages:
-  - name: nginx
-
 servers:
-  - name: kube-proxy01
-    address: "192.168.30.36"
   - name: kube-cp01
     address: "192.168.30.30"
   - name: kube-cp02
@@ -46,7 +41,3 @@ master_servers:
     address: "192.168.30.34"
   - name: kube-cp03
     address: "192.168.30.35"
-
-proxy_servers:
-  - name: kube-proxy01
-    address: "192.168.30.36"

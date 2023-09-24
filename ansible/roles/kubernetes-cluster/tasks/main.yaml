@@ -14,16 +14,6 @@
     append: yes
     password: "{{ vault_maintainer_password | password_hash('sha512') }}"
 
-- name: 'nginx用のユーザを作成する'
-  become: true
-  ansible.builtin.user:
-    name: nginx
-    shell: /usr/bin/zsh
-    groups: kubernetes, sudo
-    append: yes
-    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
-  when: "'kubernetes-proxy' in group_names"
-
 - name: '監視に必要なパッケージを追加する'
   become: true
   community.general.pacman:
@@ -71,7 +61,6 @@
     name: '{{ item.name }}'
     state: installed
   with_items: '{{ kubernetes_packages  }}'
-  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'masterに必要なパッケージを追加する'
   become: true
@@ -81,14 +70,6 @@
   with_items: '{{ kubernetes_master_packages  }}'
   when: "'kubernetes-master' in group_names"
 
-- name: 'proxyに必要なパッケージを追加する'
-  become: true
-  community.general.pacman:
-    name: '{{ item.name }}'
-    state: installed
-  with_items: '{{ kubernetes_proxy_packages  }}'
-  when: "'kubernetes-proxy' in group_names"
-
 - name: '/etc/hostsを置く'
   become: true
   ansible.builtin.template:
@@ -97,36 +78,17 @@
   vars:
     item: '{{ servers }}'
 
-- name: 'nginx.confを置く'
-  become: true
-  ansible.builtin.template:
-    src: nginx-conf.j2
-    dest: /etc/nginx/nginx.conf
-  vars:
-    item: '{{ master_servers }}'
-  when: "'kubernetes-proxy' in group_names"
-
-- name: 'nginx.serviceを有効化'
-  become: true
-  ansible.builtin.systemd:
-    state: started
-    enabled: true
-    name: nginx
-  when: "'kubernetes-proxy' in group_names"
-
 - name: 'br_netfilterを有効化'
   become: true
   community.general.modprobe:
     name: br_netfilter
     state: present
-  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'sysctlの設定を置く'
   become: true
   ansible.builtin.copy:
     src: 99-sysctl.conf
     dest: /etc/sysctl.d/99-sysctl.conf
-  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'containerd.serviceを有効化'
   become: true
@@ -134,7 +96,6 @@
     state: started
     enabled: true
     name: containerd
-  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'kubelet.serviceを有効化'
   become: true
@@ -142,4 +103,3 @@
     state: started
     enabled: true
     name: kubelet
-  when: "not 'kubernetes-proxy' in group_names"

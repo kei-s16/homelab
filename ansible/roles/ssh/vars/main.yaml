@@ -14,8 +14,6 @@ servers:
     address: 192.168.30.53
   - name: pi-bastion02
     address: 192.168.30.54
-  - name: kube-proxy01
-    address: 192.168.30.36
   - name: kube-cp01
     address: 192.168.30.30
   - name: kube-cp02

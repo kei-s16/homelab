@@ -27,9 +27,6 @@ mariadb
 [mariadb]
 192.168.30.20
 
-[kubernetes-proxy]
-192.168.30.36
-
 [kubernetes-master]
 192.168.30.30
 192.168.30.34
