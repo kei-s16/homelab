@@ -14,6 +14,16 @@
     append: yes
     password: "{{ vault_maintainer_password | password_hash('sha512') }}"
 
+- name: 'nginx用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: nginx
+    shell: /usr/bin/zsh
+    groups: kubernetes, sudo
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+  when: "'kubernetes-proxy' in group_names"
+
 - name: '監視に必要なパッケージを追加する'
   become: true
   community.general.pacman:
