@@ -59,7 +59,6 @@ ansible_user=maintainer
 192.168.30.12
 192.168.30.20
 192.168.30.53
-192.168.30.54
 
 [archlinux:children]
 arch
