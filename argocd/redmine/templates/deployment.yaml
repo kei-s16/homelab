@@ -37,7 +37,8 @@ spec:
             - secretRef:
                 name: {{ .Values.secretsName }}
           ports:
-            - containerPort: 3000
+            - port: {{ .Values.service.port }}
+              containerPort: 3000
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
