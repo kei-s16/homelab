@@ -61,6 +61,7 @@
     name: '{{ item.name }}'
     state: installed
   with_items: '{{ kubernetes_packages  }}'
+  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'masterに必要なパッケージを追加する'
   become: true
