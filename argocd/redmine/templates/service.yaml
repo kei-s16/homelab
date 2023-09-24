@@ -9,7 +9,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 3000
+      targetPort: {{ .Values.service.port }}
       protocol: TCP
   selector:
     {{- include "..selectorLabels" . | nindent 4 }}
