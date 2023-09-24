@@ -70,14 +70,6 @@
   with_items: '{{ kubernetes_master_packages  }}'
   when: "'kubernetes-master' in group_names"
 
-- name: 'proxyに必要なパッケージを追加する'
-  become: true
-  community.general.pacman:
-    name: '{{ item.name }}'
-    state: installed
-  with_items: '{{ kubernetes_proxy_packages  }}'
-  when: "'kubernetes-proxy' in group_names"
-
 - name: '/etc/hostsを置く'
   become: true
   ansible.builtin.template:
@@ -85,23 +77,6 @@
     dest: /etc/hosts
   vars:
     item: '{{ servers }}'
-
-- name: 'nginx.confを置く'
-  become: true
-  ansible.builtin.template:
-    src: nginx-conf.j2
-    dest: /etc/nginx/nginx.conf
-  vars:
-    item: '{{ master_servers }}'
-  when: "'kubernetes-proxy' in group_names"
-
-- name: 'nginx.serviceを有効化'
-  become: true
-  ansible.builtin.systemd:
-    state: started
-    enabled: true
-    name: nginx
-  when: "'kubernetes-proxy' in group_names"
 
 - name: 'br_netfilterを有効化'
   become: true
@@ -121,7 +96,6 @@
     state: started
     enabled: true
     name: containerd
-  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'kubelet.serviceを有効化'
   become: true
@@ -129,4 +103,3 @@
     state: started
     enabled: true
     name: kubelet
-  when: "not 'kubernetes-proxy' in group_names"

@@ -16,11 +16,15 @@ servers:
     address: 192.168.30.54
   - name: kube-cp01
     address: 192.168.30.30
+  - name: kube-cp02
+    address: 192.168.30.34
+  - name: kube-cp03
+    address: 192.168.30.35
   - name: kube-nd01
     address: 192.168.30.31
-  - name: kube-nd01
+  - name: kube-nd02
     address: 192.168.30.32
-  - name: kube-nd01
+  - name: kube-nd03
     address: 192.168.30.33
   - name: sandbox01
     address: 192.168.30.6
