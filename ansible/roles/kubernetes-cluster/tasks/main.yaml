@@ -119,12 +119,14 @@
   community.general.modprobe:
     name: br_netfilter
     state: present
+  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'sysctlの設定を置く'
   become: true
   ansible.builtin.copy:
     src: 99-sysctl.conf
     dest: /etc/sysctl.d/99-sysctl.conf
+  when: "not 'kubernetes-proxy' in group_names"
 
 - name: 'containerd.serviceを有効化'
   become: true
