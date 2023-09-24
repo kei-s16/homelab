@@ -24,7 +24,7 @@
     host: '{{ item.name }}'
     hostname: '{{ item.address }}'
     forward_agent: true
-    strict_host_key_checking: 'yes'
+    strict_host_key_checking: 'no'
     state: present
   with_items: '{{ servers }}'
 
