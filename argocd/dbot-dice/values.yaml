@@ -10,10 +10,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
-environments:
-  - name: "DISCORD_ACCESS_TOKEN"
-    value: ""
-
 nameservers:
   - 8.8.8.8
   - 8.8.4.4
@@ -33,6 +29,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
+
+secretsName: "dbot-dice-secrets"
 
 ingress:
   enabled: false
