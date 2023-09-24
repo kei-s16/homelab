@@ -27,8 +27,13 @@ mariadb
 [mariadb]
 192.168.30.20
 
+[kubernetes-proxy]
+192.168.30.36
+
 [kubernetes-master]
 192.168.30.30
+192.168.30.34
+192.168.30.35
 
 [kubernetes-worker]
 192.168.30.31
@@ -47,6 +52,8 @@ ansible_user=maintainer
 192.168.30.31
 192.168.30.32
 192.168.30.33
+192.168.30.34
+192.168.30.35
 
 [archarm:vars]
 ansible_user=maintainer
@@ -58,6 +65,7 @@ ansible_user=maintainer
 192.168.30.11
 192.168.30.12
 192.168.30.20
+192.168.30.36
 192.168.30.53
 
 [archlinux:children]
