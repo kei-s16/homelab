@@ -38,9 +38,6 @@ securityContext: {}
 
 secretsName: "redmine-secrets"
 
-service:
-  type: LoadBalancer
-
 ingress:
   enabled: false
   className: "nginx"
