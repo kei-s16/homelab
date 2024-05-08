@@ -1,0 +1,6 @@
+---
+- hosts: docker
+  roles:
+    - upgrade-packages
+    - initialize-node
+    - docker

@@ -2,4 +2,6 @@
 servers:
   - name: srv01
     address: 192.168.17.20
+  - name: dns01
+    address: 192.168.17.30
 

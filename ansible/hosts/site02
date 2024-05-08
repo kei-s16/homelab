@@ -1,6 +1,9 @@
 [all:vars]
 ansible_port=22
 
+[docker]
+192.168.17.30
+
 [bastion]
 192.168.17.20
 
@@ -9,6 +12,7 @@ ansible_user=maintainer
 
 [arch]
 192.168.17.20
+192.168.17.30
 
 [archlinux:children]
 arch

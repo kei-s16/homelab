@@ -27,3 +27,6 @@ all02:
 
 bastion02:
 	ansible-playbook -i ./hosts/site02 -i conf ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
+
+docker02:
+	ansible-playbook -i ./hosts/site02 -i conf ./services/docker.yaml --vault-password-file ~/ansible/.vault_pass
