@@ -24,3 +24,6 @@ redmine01:
 
 all02:
 	ansible-playbook -i ./hosts/site02 -i conf ./services/all.yaml --vault-password-file ~/ansible/.vault_pass
+
+bastion02:
+	ansible-playbook -i ./hosts/site02 -i conf ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
