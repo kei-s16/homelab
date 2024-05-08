@@ -1,0 +1,5 @@
+---
+servers:
+  - name: srv01
+    address: 192.168.17.20
+
