@@ -58,3 +58,7 @@ ansible_user=maintainer
 [archlinux:children]
 arch
 archarm
+
+[site01:children]
+archlinux
+

@@ -12,3 +12,7 @@ ansible_user=maintainer
 
 [archlinux:children]
 arch
+
+[site02:children]
+archlinux
+
