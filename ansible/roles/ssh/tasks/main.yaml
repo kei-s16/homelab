@@ -6,12 +6,13 @@
     name: python-paramiko
     state: latest
 
+# FIXME: このままだとインストールできないので
 # community.general.ssh_config の依存関係
-- name: 'stormsshを追加する'
-  ansible.builtin.pip:
-    name: stormssh
-    virtualenv: "~/.bastion/ansible/venv"
-    virtualenv_command: "/usr/bin/python -m venv"
+#- name: 'stormsshを追加する'
+#  ansible.builtin.pip:
+#    name: stormssh
+#    virtualenv: "~/.bastion/ansible/venv"
+#    virtualenv_command: "/usr/bin/python -m venv"
 
 - name: '~/.ssh/configを削除する'
   ansible.builtin.file:
