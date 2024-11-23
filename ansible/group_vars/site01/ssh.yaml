@@ -8,3 +8,5 @@ servers:
     address: 192.168.30.20
   - name: dns01
     address: 192.168.30.3
+  - name: worker01
+    address: 192.168.30.64

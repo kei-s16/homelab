@@ -9,6 +9,8 @@ all:
         archlinux:
           children:
             arch:
+              hosts:
+                192.168.30.64:
             archarm:
               hosts:
                 192.168.30.3:
@@ -22,12 +24,17 @@ all:
             192.168.30.10:
             192.168.30.11:
             192.168.30.20:
+            192.168.30.64:
 
         kubernetes:
           children:
             kubernetes_proxy:
             kubernetes_worker:
             kubernetes_master:
+
+        worker:
+          hosts:
+            192.168.30.64:
 
         bastion:
           hosts:
