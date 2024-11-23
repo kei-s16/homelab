@@ -1,0 +1,44 @@
+all:
+  hosts:
+  vars:
+    ansible_user: maintainer
+
+  children:
+    archlinux:
+      children:
+        arch:
+        archarm:
+          hosts:
+            192.168.30.3:
+            192.168.30.10:
+            192.168.30.11:
+            192.168.30.20:
+
+    lxc:
+      hosts:
+        192.168.30.3:
+        192.168.30.10:
+        192.168.30.11:
+        192.168.30.20:
+
+    kubernetes:
+      children:
+        kubernetes-proxy:
+        kubernetes-worker:
+        kubernetes-master:
+
+    bastion:
+      hosts:
+        192.168.30.10:
+        192.168.30.11:
+
+    dns:
+      hosts:
+        192.168.30.3:
+
+    redmine:
+      children:
+        mariadb:
+          hosts:
+            192.168.30.20:
+
