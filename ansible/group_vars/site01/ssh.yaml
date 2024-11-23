@@ -1,20 +1,10 @@
 ---
 servers:
-  - name: dns01
-    address: 192.168.30.3
   - name: lxc-bastion01
     address: 192.168.30.10
   - name: lxc-bastion02
     address: 192.168.30.11
-  - name: kube-cp01
-    address: 192.168.30.30
-  - name: kube-cp02
-    address: 192.168.30.34
-  - name: kube-cp03
-    address: 192.168.30.35
-  - name: kube-nd01
-    address: 192.168.30.31
-  - name: kube-nd02
-    address: 192.168.30.32
-  - name: kube-nd03
-    address: 192.168.30.33
+  - name: redmine-db01
+    address: 192.168.30.20
+  - name: dns01
+    address: 192.168.30.3
