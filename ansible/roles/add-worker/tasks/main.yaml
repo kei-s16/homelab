@@ -1,4 +1,15 @@
 ---
+- name: '日本語ロケールの生成'
+  become: true
+  community.general.locale_gen:
+    name: ja_JP.UTF-8
+
+- name: '日本語ロケールを使う'
+  become: true
+  ansible.builtin.copy:
+    content: 'LANG=ja_JP.UTF-8'
+    dest: /etc/locale.conf
+
 - name: 'worker用のユーザを作成する'
   become: true
   ansible.builtin.user:

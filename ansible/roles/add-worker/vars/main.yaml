@@ -4,9 +4,15 @@ worker_packages:
   - name: unzip
   - name: ninja
   - name: curl
+  - name: tmux
+  - name: eza
+  - name: zoxide
+  - name: man
 
 worker_aur_packages:
+  - name: paru
   - name: asdf-vm
+  - name: man-pages-ja
 
 authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
