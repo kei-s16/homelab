@@ -3,4 +3,5 @@
   roles:
     - upgrade-packages
     - initialize-node
+    - add-worker
 
