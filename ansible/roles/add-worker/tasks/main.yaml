@@ -1,0 +1,35 @@
+---
+- name: 'worker用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: kei # TODO: 変数化する
+    shell: /usr/bin/zsh
+    groups: sudo, wheel
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+  when: "'worker' in group_names"
+
+- name: 'worker用のユーザのauthorized_keysを設定する'
+  become: true
+  ansible.posix.authorized_key:
+    user: kei
+    state: present
+    key: '{{ item.key }}'
+  with_items: '{{ authorized_keys }}'
+  when: "'worker' in group_names"
+
+- name: 'workerに必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ worker_packages }}'
+  when: "'worker' in group_names"
+
+- name: 'workerに必要なAURパッケージを追加する'
+  kewlfft.aur.aur:
+    name: '{{ item.name }}'
+    state: present
+  with_items: '{{ worker_aur_packages }}'
+  when: "'worker' in group_names"
+
