@@ -1,0 +1,6 @@
+---
+- hosts: cache
+  roles:
+    - upgrade-packages
+    - initialize-node
+
