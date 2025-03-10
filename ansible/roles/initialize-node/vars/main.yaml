@@ -10,6 +10,7 @@ base_packages:
   - name: rustup
   - name: python-pip
   - name: python-setuptools
+  - name: rsync
 
 authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
