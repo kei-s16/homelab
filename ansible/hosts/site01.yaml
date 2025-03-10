@@ -59,9 +59,6 @@ all:
           children:
             pacman:
               children:
-                x86:
-                  hosts:
-                    192.168.30.60:
                 arm:
                   hosts:
                     192.168.30.61:
