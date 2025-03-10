@@ -10,8 +10,6 @@ servers:
     address: 192.168.30.3
   - name: worker01
     address: 192.168.30.64
-  - name: cache-x86-01
-    address: 192.168.30.60
   - name: cache-arm-01
     address: 192.168.30.61
 
