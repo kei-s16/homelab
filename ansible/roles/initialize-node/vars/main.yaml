@@ -8,6 +8,7 @@ base_packages:
   - name: git
   - name: base-devel
   - name: rustup
+  - name: pacman-contrib
   - name: python-pip
   - name: python-setuptools
   - name: rsync

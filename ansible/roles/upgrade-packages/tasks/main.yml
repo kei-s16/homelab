@@ -28,7 +28,12 @@
   community.general.pacman:
     name: archlinux-keyring
     state: latest
-    update_cache: yes
+
+- name: "pacman-contribを入れる"
+  become: true
+  community.general.pacman:
+    name: pacman-contrib
+    state: latest
 
 - name: "pacman -Syyuする"
   become: true
@@ -42,4 +47,8 @@
   ansible.builtin.reboot:
     msg: "Ansibleでパッケージ更新があったので、再起動します"
   when: result.changed == true and "not 'deployer' in group_names"
+
+- name: "pacmanのキャッシュを消す"
+  become: true
+  ansible.builtin.shell: paccache --remove --keep 3
 
