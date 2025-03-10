@@ -1,0 +1,7 @@
+---
+- hosts: cache
+  roles:
+    - upgrade-packages
+    - initialize-node
+    - pacman-cache
+

@@ -1,10 +1,39 @@
 ---
+- name: "rsyncを入れる"
+  become: true
+  community.general.pacman:
+    name: rsync
+    state: latest
+
+- name: "キャッシュを同期する(x86_64)"
+  become: true
+  ansible.posix.synchronize:
+    mode: pull
+    src: rsync://192.168.30.61/x86_64/
+    dest: /var/cache/pacman/pkg/
+  delegate_to: "{{ inventory_hostname }}"
+  when: "'arch' in group_names"
+
+- name: "キャッシュを同期する(aarch64)"
+  become: true
+  ansible.posix.synchronize:
+    mode: pull
+    src: rsync://192.168.30.61/aarch64/
+    dest: /var/cache/pacman/pkg/
+  delegate_to: "{{ inventory_hostname }}"
+  when: "'archarm' in group_names"
+
 - name: "archlinux-keyringを先に更新かける"
   become: true
   community.general.pacman:
     name: archlinux-keyring
     state: latest
-    update_cache: yes
+
+- name: "pacman-contribを入れる"
+  become: true
+  community.general.pacman:
+    name: pacman-contrib
+    state: latest
 
 - name: "pacman -Syyuする"
   become: true
@@ -18,3 +47,8 @@
   ansible.builtin.reboot:
     msg: "Ansibleでパッケージ更新があったので、再起動します"
   when: result.changed == true and "not 'deployer' in group_names"
+
+- name: "pacmanのキャッシュを消す"
+  become: true
+  ansible.builtin.shell: paccache --remove --keep 3
+

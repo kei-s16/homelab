@@ -1,0 +1,46 @@
+---
+- name: 'rsyncを追加する'
+  become: true
+  community.general.pacman:
+    name: rsync
+    state: installed
+
+- name: 'rsyncグループを作成する'
+  become: true
+  ansible.builtin.group:
+    name: rsync
+    state: present
+
+- name: 'rsync用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: sync
+    shell: /usr/bin/zsh
+    groups: rsync, sudo
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+
+- name: 'rsync用のディレクトリを掘る'
+  become: true
+  become_user: sync
+  ansible.builtin.file:
+    path: "/home/sync/pacman/{{ item }}"
+    state: 'directory'
+    mode: '0755'
+  loop:
+    - aarch64
+    - x86_64
+
+- name: 'rsyncdの設定を置く'
+  become: true
+  ansible.builtin.template:
+    src: rsyncd.conf.j2
+    dest: /etc/rsyncd.conf
+
+- name: 'rsyncd.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: rsyncd
+
