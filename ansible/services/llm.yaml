@@ -1,0 +1,6 @@
+---
+- hosts: ollama
+  roles:
+    - upgrade-packages
+    - initialize-node
+
