@@ -1,0 +1,20 @@
+---
+- name: '必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ required_packages }}'
+
+- name: 'ollama.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: ollama
+
+- name: 'モデルをダウンロード'
+  ansible.builtin.shell:
+    cmd: 'ollama pull {{ item.name }}'
+  with_items: '{{ required_models }}'
+

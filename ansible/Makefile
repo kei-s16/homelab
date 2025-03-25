@@ -10,6 +10,9 @@ dns01:
 cache01:
 	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/cache.yaml --vault-password-file ~/ansible/.vault_pass
 
+llm01:
+	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/llm.yaml --vault-password-file ~/ansible/.vault_pass
+
 worker01:
 	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/worker.yaml --vault-password-file ~/ansible/.vault_pass
 
