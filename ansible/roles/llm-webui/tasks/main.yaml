@@ -31,6 +31,46 @@
     owner: webui
     mode: 755
 
+- name: 'systemd用ディレクトリを掘る'
+  become: true
+  become_user: webui
+  ansible.builtin.file:
+    path: ~/.config/systemd/user
+    state: "directory"
+    recurse: true
+    owner: webui
+    mode: 755
+
+- name: 'MCPのconfigを置く'
+  become: true
+  become_user: webui
+  ansible.builtin.template:
+    src: config.json.j2
+    dest: ~/config.json
+
+- name: 'MCPのsystemd unitファイルを置く'
+  become: true
+  ansible.builtin.template:
+    src: mcpo.service.j2
+    dest: /etc/systemd/system/mcpo.service
+  register: mcpo
+
+- name: 'mcpo.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    daemon_reload: true
+    name: mcpo
+
+- name: 'mcpoを再読み込み'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: mcpo
+  when: mcpo.changed == true
+
 - name: 'docker.serviceを有効化'
   become: true
   ansible.builtin.systemd:
@@ -55,5 +95,5 @@
 
 - name: "起動できたか確認する"
   ansible.builtin.debug:
-    var: webui_status
+    var: webui_status.failed
 
