@@ -1,0 +1,59 @@
+---
+- name: '必要なパッケージを追加する'
+  become: true
+  community.general.pacman:
+    name: '{{ item.name }}'
+    state: installed
+  with_items: '{{ required_packages }}'
+
+- name: 'webuiグループを作成する'
+  become: true
+  ansible.builtin.group:
+    name: webui
+    state: present
+
+- name: 'webui用のユーザを作成する'
+  become: true
+  ansible.builtin.user:
+    name: webui
+    shell: /usr/bin/zsh
+    groups: webui,docker
+    append: yes
+    password: "{{ vault_maintainer_password | password_hash('sha512') }}"
+
+- name: 'uv用ディレクトリを掘る'
+  become: true
+  become_user: webui
+  ansible.builtin.file:
+    path: ~/.open-webui
+    state: "directory"
+    recurse: true
+    owner: webui
+    mode: 755
+
+- name: 'docker.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: docker
+
+- name: 'compose.yamlを置く'
+  become: true
+  become_user: webui
+  ansible.builtin.template:
+    src: compose.yaml.j2
+    dest: ~/compose.yaml
+
+- name: 'docker compose up -d'
+  become: true
+  become_user: webui
+  community.docker.docker_compose_v2:
+    project_src: ~/
+    state: "present"
+  register: webui_status
+
+- name: "起動できたか確認する"
+  ansible.builtin.debug:
+    var: webui_status
+

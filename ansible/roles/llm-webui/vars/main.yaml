@@ -1,0 +1,8 @@
+---
+required_packages:
+  - name: python
+  - name: uv
+  - name: docker
+  - name: docker-compose
+  - name: docker-buildx
+

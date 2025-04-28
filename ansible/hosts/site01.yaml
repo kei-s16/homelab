@@ -64,6 +64,11 @@ all:
                     192.168.30.61:
 
         ollama:
-          hosts:
-            192.168.30.70:
+          children:
+            llm:
+              hosts:
+                192.168.30.70:
+            webui:
+              hosts:
+                192.168.30.70:
 

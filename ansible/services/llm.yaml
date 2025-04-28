@@ -1,7 +1,11 @@
 ---
-- hosts: ollama
+- hosts: llm
   roles:
-    #- upgrade-packages
-    #- initialize-node
+    - upgrade-packages
+    - initialize-node
     - llm
+
+- hosts: webui
+  roles:
+    - llm-webui
 

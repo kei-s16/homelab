@@ -1,5 +1,6 @@
 setup:
 	ansible-galaxy collection install kewlfft.aur
+	ansible-galaxy collection install community.docker
 
 all01:
 	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/all.yaml --vault-password-file ~/ansible/.vault_pass
