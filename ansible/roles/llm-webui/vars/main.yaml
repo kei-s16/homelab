@@ -7,4 +7,5 @@ required_packages:
   - name: docker-buildx
   - name: deno
   - name: nodejs-lts-jod
+  - name: npm
 
