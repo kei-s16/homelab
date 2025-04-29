@@ -1,0 +1,11 @@
+---
+required_packages:
+  - name: python
+  - name: uv
+  - name: docker
+  - name: docker-compose
+  - name: docker-buildx
+  - name: deno
+  - name: nodejs-lts-jod
+  - name: npm
+

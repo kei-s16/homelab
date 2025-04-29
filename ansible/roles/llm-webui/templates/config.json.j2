@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=Asia/Tokyo"]
+    },
+    "vite-docs": {
+      "command": "npx",
+      "args": ["-y", "sitemcp", "https://vite.dev"]
+    },
+    "archwiki-jp": {
+      "command": "npx",
+      "args": ["-y", "sitemcp", "https://wiki.archlinux.jp", "-m", "\"/index.php/**\""]
+    },
+    "my-blog": {
+      "command": "npx",
+      "args": ["-y", "sitemcp", "https://blog.k16em.net", "-t", "subdomain", "-m", "\"/posts/**\""]
+    }
+  }
+}
+

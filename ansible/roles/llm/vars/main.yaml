@@ -1,0 +1,11 @@
+---
+required_packages:
+  - name: ollama
+
+required_models:
+  - name: 7shi/tanuki-dpo-v1.0:8b-q6_K
+  - name: 7shi/tanuki-dpo-v1.0:8b-iq3_XXS
+  - name: 7shi/tanuki-dpo-v1.0:8b-q4_K_S
+  - name: phi4-mini:3.8b-q4_K_M
+  - name: phi4:14b-q4_K_M
+

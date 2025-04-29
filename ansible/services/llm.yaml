@@ -1,0 +1,11 @@
+---
+- hosts: llm
+  roles:
+    - upgrade-packages
+    - initialize-node
+    - llm
+
+- hosts: webui
+  roles:
+    - llm-webui
+
