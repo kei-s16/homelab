@@ -4,8 +4,11 @@ Wants=network-online.target
 After=network.target network-online.target
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=uvx mcpo --config /home/webui/config.json
-ExecStop=/bin/kill ${MAINPID}
-RemainAfterExit=yes
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
 
