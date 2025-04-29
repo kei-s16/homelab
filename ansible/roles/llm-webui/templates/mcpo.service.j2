@@ -8,6 +8,8 @@ Type=simple
 ExecStart=uvx mcpo --config /home/webui/config.json
 Restart=on-failure
 RestartSec=5s
+User=webui
+Group=webui
 
 [Install]
 WantedBy=multi-user.target
