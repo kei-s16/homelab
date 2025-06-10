@@ -20,4 +20,5 @@ authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFKnlIyCgW31Fah9Lu/f0Sn2SYvSN69VkoBqJBSOSV0 maintainer@ansible01
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJfrFtXf4ZZ0Cvc8imYopa8lEB8pL0pozsp72uebybk GPDWM
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDalCgHF6xdItVJ+372THFRFvnHwiLfDnhKHqngQwb/z homelab
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIWhmPjY0gQuN/SuSiZd+un5gLgIeepMTRz6Oe7pEmTL deskmeet-x300
 
