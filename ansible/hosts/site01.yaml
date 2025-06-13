@@ -49,12 +49,6 @@ all:
           hosts:
             192.168.30.3:
 
-        redmine:
-          children:
-            mariadb:
-              hosts:
-                192.168.30.20:
-
         cache:
           children:
             pacman:
