@@ -3,18 +3,29 @@
   become: true
   community.general.pacman:
     name: 
-    - lighttpd
     - php-cgi
     - openssl
     - openssl-1.1
     - patch
+    - mbedtls
     state: latest
 
-- name: 'pi-holeをインストール'
+- name: 'pi-hole-webをインストール'
+  kewlfft.aur.aur:
+    name:
+      - pi-hole-web
+    state: present
+
+- name: 'pi-hole-ftlをインストール'
   kewlfft.aur.aur:
     name:
       - pi-hole-ftl
-      - pi-hole-server
+    state: present
+
+- name: 'pi-hole-coreをインストール'
+  kewlfft.aur.aur:
+    name:
+      - pi-hole-core
     state: present
 
 - name: 'pihole-FTL.serviceを有効化'
@@ -23,13 +34,6 @@
     state: started
     enabled: true
     name: pihole-FTL
-
-- name: 'lighttpd.serviceを有効化'
-  become: true
-  ansible.builtin.systemd:
-    state: started
-    enabled: true
-    name: lighttpd
 
 - name: 'resolvdの追加設定用ディレクトリを掘る'
   become: true
