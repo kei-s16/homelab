@@ -12,6 +12,7 @@ base_packages:
   - name: python-pip
   - name: python-setuptools
   - name: rsync
+  - name: base-devel
 
 authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
