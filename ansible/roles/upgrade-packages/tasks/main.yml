@@ -5,23 +5,23 @@
     name: rsync
     state: latest
 
-- name: "キャッシュを同期する(x86_64)"
-  become: true
-  ansible.posix.synchronize:
-    mode: pull
-    src: rsync://192.168.30.61/x86_64/
-    dest: /var/cache/pacman/pkg/
-  delegate_to: "{{ inventory_hostname }}"
-  when: "'arch' in group_names"
-
-- name: "キャッシュを同期する(aarch64)"
-  become: true
-  ansible.posix.synchronize:
-    mode: pull
-    src: rsync://192.168.30.61/aarch64/
-    dest: /var/cache/pacman/pkg/
-  delegate_to: "{{ inventory_hostname }}"
-  when: "'archarm' in group_names"
+#- name: "キャッシュを同期する(x86_64)"
+#  become: true
+#  ansible.posix.synchronize:
+#    mode: pull
+#    src: rsync://192.168.30.61/x86_64/
+#    dest: /var/cache/pacman/pkg/
+#  delegate_to: "{{ inventory_hostname }}"
+#  when: "'arch' in group_names"
+#
+#- name: "キャッシュを同期する(aarch64)"
+#  become: true
+#  ansible.posix.synchronize:
+#    mode: pull
+#    src: rsync://192.168.30.61/aarch64/
+#    dest: /var/cache/pacman/pkg/
+#  delegate_to: "{{ inventory_hostname }}"
+#  when: "'archarm' in group_names"
 
 - name: "archlinux-keyringを先に更新かける"
   become: true
