@@ -3,32 +3,30 @@ all:
   vars:
     ansible_user: maintainer
 
-    children:
-      site02:
-        children:
-          archlinux:
-            children:
-              arch:
-                hosts:
-                  192.168.17.20:
-                  192.168.17.30:
-              archarm:
-                hosts:
+  children:
+    site02:
+      children:
+        archlinux:
+          children:
+            arch:
+              hosts:
+            archarm:
+              hosts:
+                192.168.32.30:
+                192.168.32.31:
 
-          lxc:
-            hosts:
+        lxc:
+          hosts:
 
-          kubernetes:
-            children:
-              kubernetes_proxy:
-              kubernetes_worker:
-              kubernetes_master:
+        kubernetes:
+          children:
+            kubernetes_proxy:
+            kubernetes_worker:
+            kubernetes_master:
 
-          bastion:
-            hosts:
-              192.168.17.20:
+        bastion:
+          hosts:
 
-          docker:
-            hosts:
-              192.168.17.30:
+        docker:
+          hosts:
 
