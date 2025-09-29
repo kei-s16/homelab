@@ -49,10 +49,3 @@
     name: root
     password: "{{ vault_root_password | password_hash('sha512') }}"
 
-# - name: 'デフォルトユーザを削除する'
-#   become: true
-#   ansible.builtin.user:
-#     name: kei
-#     remove: true
-#     state: absent
-
