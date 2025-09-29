@@ -5,11 +5,29 @@
     name: grafana
     state: latest
 
-# TODO: /etc/grafana.ini を編集して配置する
-
 - name: 'grafana.serviceを有効化'
   become: true
   ansible.builtin.systemd:
     state: started
     enabled: true
     name: grafana
+
+- name: 'prometheusをインストール'
+  become: true
+  community.general.pacman:
+    name: prometheus
+    state: latest
+
+- name: 'prometheusの設定を置く'
+  become: true
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+
+- name: 'prometheus.serviceを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: prometheus
+

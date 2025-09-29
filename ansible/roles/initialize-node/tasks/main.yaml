@@ -49,3 +49,10 @@
     name: root
     password: "{{ vault_root_password | password_hash('sha512') }}"
 
+- name: 'prometheus-node-exporterを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: prometheus-node-exporter
+
