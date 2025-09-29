@@ -10,6 +10,7 @@ all:
           children:
             arch:
               hosts:
+                192.168.32.100:
             archarm:
               hosts:
                 192.168.32.30:
@@ -17,6 +18,7 @@ all:
 
         lxc:
           hosts:
+            192.168.32.100:
 
         kubernetes:
           children:
@@ -29,4 +31,8 @@ all:
 
         docker:
           hosts:
+
+        dns:
+          hosts:
+            192.168.32.100:
 
