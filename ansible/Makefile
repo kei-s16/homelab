@@ -41,3 +41,6 @@ bastion02:
 dns02:
 	ansible-playbook -i ./hosts/site02.yaml -i conf ./services/dns.yaml --vault-password-file ~/ansible/.vault_pass
 
+grafana02:
+	ansible-playbook -i ./hosts/site02.yaml -i conf ./services/grafana.yaml --vault-password-file ~/ansible/.vault_pass
+
