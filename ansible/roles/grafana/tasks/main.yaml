@@ -1,9 +1,9 @@
 ---
 - name: 'grafanaをインストール'
-  become: true
-  community.general.pacman:
-    name: grafana
-    state: latest
+  kewlfft.aur.aur:
+    name:
+      - grafana-bin
+    state: present
 
 - name: 'grafana.serviceを有効化'
   become: true
@@ -23,11 +23,21 @@
   ansible.builtin.template:
     src: prometheus.yml.j2
     dest: /etc/prometheus/prometheus.yml
+  register: prometheus
 
-- name: 'prometheus.serviceを有効化'
+- name: 'prometheusを有効化'
   become: true
   ansible.builtin.systemd:
     state: started
     enabled: true
     name: prometheus
+
+- name: 'prometheusを再読み込み'
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: true
+    name: prometheus
+  when: prometheus.changed == true
+
 
