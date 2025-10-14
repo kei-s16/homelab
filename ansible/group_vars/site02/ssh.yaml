@@ -1,7 +1,9 @@
 ---
 servers:
-  - name: srv01
-    address: 192.168.17.20
-  - name: dns01
-    address: 192.168.17.30
+  - name: grafana01
+    address: 192.168.32.30
+  - name: jenkins01
+    address: 192.168.32.31
+  - name: pihole01
+    address: 192.168.32.100
 
