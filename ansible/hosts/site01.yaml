@@ -10,25 +10,13 @@ all:
           children:
             arch:
               hosts:
-                192.168.30.64:
-                192.168.30.70:
             archarm:
               hosts:
-                192.168.30.3:
-                192.168.30.10:
-                192.168.30.11:
                 192.168.30.20:
-                192.168.30.61:
+                192.168.30.21:
 
         lxc:
           hosts:
-            192.168.30.3:
-            192.168.30.10:
-            192.168.30.11:
-            192.168.30.20:
-            192.168.30.61:
-            192.168.30.64:
-            192.168.30.70:
 
         kubernetes:
           children:
@@ -36,33 +24,24 @@ all:
             kubernetes_worker:
             kubernetes_master:
 
-        worker:
-          hosts:
-            192.168.30.64:
-
         bastion:
           hosts:
-            192.168.30.10:
-            192.168.30.11:
+
+        docker:
+          hosts:
+
+        grafana:
+          hosts:
+            192.168.30.20:
+
+        jenkins:
+          hosts:
+            192.168.30.21:
 
         dns:
           hosts:
-            192.168.30.3:
 
-        cache:
-          children:
-            pacman:
-              children:
-                arm:
-                  hosts:
-                    192.168.30.61:
-
-        ollama:
-          children:
-            llm:
-              hosts:
-                192.168.30.70:
-            webui:
-              hosts:
-                192.168.30.70:
+        proxmox:
+          hosts:
+            192.168.30.55:
 
