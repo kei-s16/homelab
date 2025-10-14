@@ -1,15 +1,7 @@
 ---
 servers:
-  - name: lxc-bastion01
-    address: 192.168.30.10
-  - name: lxc-bastion02
-    address: 192.168.30.11
-  - name: redmine-db01
+  - name: grafana01
     address: 192.168.30.20
-  - name: dns01
-    address: 192.168.30.3
-  - name: worker01
-    address: 192.168.30.64
-  - name: cache-arm-01
-    address: 192.168.30.61
+  - name: jenkins01
+    address: 192.168.30.21
 
