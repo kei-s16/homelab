@@ -41,6 +41,7 @@
     update_cache: yes
     upgrade: yes
   register: result
+  changed_when: result.cache_updated == true and result.changed == true and result.packages | length > 0
 
 - name: "更新されたパッケージがあるなら、再起動"
   become: true

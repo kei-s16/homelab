@@ -12,6 +12,4 @@ servers:
     address: 192.168.30.64
   - name: cache-arm-01
     address: 192.168.30.61
-  - name: ollama01
-    address: 192.168.30.70
 

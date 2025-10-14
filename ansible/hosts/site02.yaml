@@ -10,6 +10,8 @@ all:
           children:
             arch:
               hosts:
+                192.168.32.100:
+                192.168.32.60:
             archarm:
               hosts:
                 192.168.32.30:
@@ -17,6 +19,8 @@ all:
 
         lxc:
           hosts:
+            192.168.32.100:
+            192.168.32.60:
 
         kubernetes:
           children:
@@ -26,7 +30,24 @@ all:
 
         bastion:
           hosts:
+            192.168.32.60:
 
         docker:
           hosts:
+
+        grafana:
+          hosts:
+            192.168.32.30:
+
+        jenkins:
+          hosts:
+            192.168.32.31:
+
+        dns:
+          hosts:
+            192.168.32.100:
+
+        proxmox:
+          hosts:
+            192.168.32.50:
 
