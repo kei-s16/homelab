@@ -4,9 +4,11 @@
     name: tailscale
     state: latest
 
-# 本当はここにtailscale upが必要
-# でもぶっちゃけこれtailscaleが最新であることとtailscaledが動いてることを担保できればいいから
-# ~~めんどくさそうだし~~やらない
+- name: 'sysctlの設定を置く'
+  become: true
+  ansible.builtin.copy:
+    src: 99-tailscale.conf
+    dest: /etc/sysctl.d/99-tailscale.conf
 
 - name: 'tailscaled.serviceを有効化'
   become: true
@@ -14,3 +16,4 @@
     state: started
     enabled: true
     name: tailscaled
+
