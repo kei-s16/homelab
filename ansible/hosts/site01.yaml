@@ -10,6 +10,7 @@ all:
           children:
             arch:
               hosts:
+                192.168.30.30:
             archarm:
               hosts:
                 192.168.30.20:
@@ -17,6 +18,7 @@ all:
 
         lxc:
           hosts:
+            192.168.30.30:
 
         kubernetes:
           children:
@@ -26,6 +28,7 @@ all:
 
         bastion:
           hosts:
+            192.168.30.30:
 
         docker:
           hosts:
