@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 引数チェック
-if [ $# -ne 4 ]; then
+if [ $# -ne 6 ]; then
     echo "Usage: $0 <CTID> <CTHOSTNAME> <CTPASSWORD> <CTIPV4> <CTIPV4GW> <CTIPV4DNS>"
     exit 1
 fi
