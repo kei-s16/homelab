@@ -6,6 +6,7 @@
       - freetype2
       - jre21-openjdk
       - ansible
+      - python-passlib
     state: latest
 
 - name: 'jenkins-ltsをインストール'
