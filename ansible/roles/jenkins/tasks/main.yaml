@@ -1,0 +1,37 @@
+- name: 'jenkinsの依存関係をインストール'
+  become: true
+  community.general.pacman:
+    name: 
+      - fontconfig
+      - freetype2
+      - jre21-openjdk
+      - ansible
+    state: latest
+
+- name: 'jenkins-ltsをインストール'
+  kewlfft.aur.aur:
+    name:
+      - jenkins-lts
+    state: present
+
+- name: 'jenkinsの実行バージョンを変える'
+  become: true
+  ansible.builtin.replace:
+    path: /etc/conf.d/jenkins
+    regexp: '/usr/lib/jvm/java-17-openjdk/bin/java'
+    replace: '/usr/lib/jvm/java-21-openjdk/bin/java'
+
+- name: 'jenkinsの実行オブションを変える'
+  become: true
+  ansible.builtin.replace:
+    path: /etc/conf.d/jenkins
+    regexp: '^JENKINS_OPTS='
+    replace: 'JENKINS_OPTS=--enable-future-java'
+
+- name: 'jenkinsを有効化'
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: jenkins
+

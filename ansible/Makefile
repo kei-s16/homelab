@@ -20,6 +20,9 @@ worker01:
 grafana01:
 	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/grafana.yaml --vault-password-file ~/ansible/.vault_pass
 
+jenkins01:
+	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/jenkins.yaml --vault-password-file ~/ansible/.vault_pass
+
 bastion01:
 	ansible-playbook -i ./hosts/site01.yaml -i conf ./services/bastion.yaml --vault-password-file ~/ansible/.vault_pass
 
