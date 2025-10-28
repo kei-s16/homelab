@@ -25,4 +25,4 @@ authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH6lbSY1sE2SNc3aHonvKqIW+DC3VeT6D4OfFo6Ar16q JuiceSSH
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGuiuJAh/R4P13e05iv8rKMJx5Pn/KpqoMxG7eD4sQ5 kisaragi
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4wGS5GSUvjG98Nr0pk6tmNijrkifXyTgRuIpmkkzTc tk-jenkins
-
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKxSPeeHBTPF94q71N7wa3RyLfWMIxS7zexiVAiOeRuO hb-rpi
