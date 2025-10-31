@@ -7,22 +7,28 @@ worker_packages:
   - name: tmux
   - name: eza
   - name: zoxide
+  - name: fzf
+  - name: thefuck
   - name: man
+  - name: mise
+  - name: direnv
+  - name: github-cli
 
 worker_aur_packages:
   - name: paru
-  - name: asdf-vm
-  - name: man-pages-ja
 
 authorized_keys:
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH1+DvxUVbKQVrRsRhZEX/aqdox/MU3nC9bqmJBDz+by homelab
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMz2Z8uOw2WCkEQgaQtpDxCNqAPsRFiVCiXQrSzzo+vb
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKZJc89W8z5FzkZpbA4Hl6RXyX5t8nlWingBKMlFPAaw JuiceSSH
-  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFKnlIyCgW31Fah9Lu/f0Sn2SYvSN69VkoBqJBSOSV0 maintainer@ansible01
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFKnlIyCgW31Fah9Lu/f0Sn2SYvSN69VkoBqJBSOSV0
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJfrFtXf4ZZ0Cvc8imYopa8lEB8pL0pozsp72uebybk GPDWM
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDalCgHF6xdItVJ+372THFRFvnHwiLfDnhKHqngQwb/z homelab
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIWhmPjY0gQuN/SuSiZd+un5gLgIeepMTRz6Oe7pEmTL deskmeet-x300
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH6lbSY1sE2SNc3aHonvKqIW+DC3VeT6D4OfFo6Ar16q JuiceSSH
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGuiuJAh/R4P13e05iv8rKMJx5Pn/KpqoMxG7eD4sQ5 kisaragi
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4wGS5GSUvjG98Nr0pk6tmNijrkifXyTgRuIpmkkzTc tk-jenkins
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKxSPeeHBTPF94q71N7wa3RyLfWMIxS7zexiVAiOeRuO hb-rpi
+  - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/jDgIW8+WVpW7nMb0FF18IK/nWy7rvWsPsljIdkmLm hbpm
   - key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBMwdB00ST3GUUpKORPV1DACqctIlLK0/dZ0kAQESIyW hb-mjr
 

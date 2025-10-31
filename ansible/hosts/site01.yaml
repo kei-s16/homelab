@@ -12,6 +12,7 @@ all:
               hosts:
                 192.168.30.30:
                 192.168.30.3:
+                192.168.30.16:
             archarm:
               hosts:
                 192.168.30.20:
@@ -20,6 +21,8 @@ all:
         lxc:
           hosts:
             192.168.30.30:
+            192.168.30.3:
+            192.168.30.16:
 
         kubernetes:
           children:
@@ -33,6 +36,10 @@ all:
 
         docker:
           hosts:
+
+        worker:
+          hosts:
+            192.168.30.16:
 
         grafana:
           hosts:
