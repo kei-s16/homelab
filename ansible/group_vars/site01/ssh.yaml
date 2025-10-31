@@ -4,4 +4,8 @@ servers:
     address: 192.168.30.20
   - name: jenkins01
     address: 192.168.30.21
+  - name: worker01
+    address: 192.168.30.16
+  - name: dns01
+    address: 192.168.30.3
 
