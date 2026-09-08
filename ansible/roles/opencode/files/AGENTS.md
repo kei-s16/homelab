@@ -11,6 +11,11 @@
 - Explain non-obvious decisions in the commit message and the pull request description instead.
 - Markdown headings are not comments.
 
+## Privacy and placeholders
+- Do NOT write real email addresses.
+- Do NOT write real domains.
+- If a domain or email address is absolutely necessary, use the `example.com` domain.
+
 ## Committing
 - Do NOT commit untracked files. Anything `git status` shows as `??` stays out of the commit, even if you created it yourself, unless you are explicitly told to include it.
 - Do NOT use `git add -A`, `git add .`, or `git add <directory>`. Name the changed paths explicitly; use `git add -A -- <explicit paths>` when the change includes deletions or renames.
